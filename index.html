@@ -54,19 +54,27 @@ p.tagline {
 }
 
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .links a {
   display: block;
   margin: 12px auto;
   padding: 16px;
-  width: 95%;         /* full width on mobile */
+  width: 100%;          /* full width but safe now */
+  max-width: 360px;     /* prevents it from stretching too wide */
   text-decoration: none;
-  background: #b7412e; /* rust red default */
+  background: #b7412e;
   color: #fff;
   font-weight: bold;
   border-radius: 8px;
   transition: 0.3s;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
 }
+
 
 .links a:hover {
   background: #a13424; /* darker rust */
