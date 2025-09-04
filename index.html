@@ -10,12 +10,22 @@
     background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
     color: #e2c38f;
     text-align: center;
-    padding: 40px 20px;
+    margin: 0;
+    min-height: 100vh;              /* Fill full screen height */
+    display: flex;                  /* Flexbox centering */
+    flex-direction: column;
+    justify-content: center;        /* Vertical center */
+    align-items: center;            /* Horizontal center */
+    padding: 20px;
+  }
+  .container {
+    max-width: 500px;
+    width: 100%;
   }
   img.logo {
-    max-width: 200px;     /* Default size on larger screens */
-    width: 100%;          /* Scales down for smaller screens */
-    height: auto;         /* Keeps aspect ratio */
+    max-width: 200px;
+    width: 100%;
+    height: auto;
     margin-bottom: 20px;
   }
   h1 {
@@ -62,30 +72,28 @@
   }
 </style>
 
+
 </head>
 <body>
-  <!-- Band logo -->
-  <img src="logo.jpeg" alt="Navarro & The Creatures Logo" class="logo">
+  <div class="container">
+    <img src="logo.jpeg" alt="Navarro & The Creatures Logo" class="logo">
 
-  <h1>Navarro & The Creatures</h1>
-  <p class="tagline">South Texas Blues • Soul • Rock n’ Roll</p>
-  
-  <div class="links">
-    <!-- Featured new single -->
-    <a class="featured" href="https://distrokid.com/hyperfollow/navarroandthecreatures/tell-me" target="_blank">🎶 PRE-SAVE "Tell Me"</a>
+    <h1>Navarro & The Creatures</h1>
+    <p class="tagline">South Texas Blues • Soul • Rock n’ Roll</p>
+    
+    <div class="links">
+      <a class="featured" href="https://distrokid.com/hyperfollow/navarroandthecreatures/tell-me" target="_blank">🎶 PRE-SAVE "Tell Me"</a>
+<!--       <a href="https://open.spotify.com/your-link" target="_blank">Spotify</a>
+      <a href="https://music.apple.com/your-link" target="_blank">Apple Music</a>
+      <a href="https://youtube.com/your-link" target="_blank">YouTube</a>
+      <a href="https://instagram.com/your-band" target="_blank">Instagram</a>
+      <a href="https://facebook.com/your-band" target="_blank">Facebook</a> -->
+    </div>
 
-    <!-- Music Platforms -->
-<!--     <a href="https://open.spotify.com/your-link" target="_blank">Spotify</a>
-    <a href="https://music.apple.com/your-link" target="_blank">Apple Music</a>
-    <a href="https://youtube.com/your-link" target="_blank">YouTube</a> -->
-
-    <!-- Socials -->
-<!--     <a href="https://instagram.com/your-band" target="_blank">Instagram</a>
-    <a href="https://facebook.com/your-band" target="_blank">Facebook</a> -->
+    <footer>
+      © 2025 Navarro & The Creatures
+    </footer>
   </div>
-
-  <footer>
-    © 2025 Navarro & The Creatures
-  </footer>
 </body>
+
 </html>
