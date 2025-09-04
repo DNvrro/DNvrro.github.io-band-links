@@ -5,112 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navarro & The Creatures</title>
 <style>
-body {
-  font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
-  color: #e2c38f;
-  text-align: center;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.container {
-  max-width: 420px;
-  width: 100%;
-  padding: 0 0;      /* remove horizontal padding */
-  margin: 0 auto;    /* keep centered */
-}
-
-
-img.logo {
-  max-width: 250px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 25px;
-
-  border-radius: 20%;        /* less aggressive than 50% */
-  border: 4px solid #e2c38f;
-  object-fit: contain;       /* keeps the whole image visible */
-  background: #111;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.6);
-  padding: 10px;             /* adds breathing room inside */
-}
-
-
-
-h1 {
-  font-size: 2rem;   /* smaller default for mobile */
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-p.tagline {
-  font-size: 0.9rem;
-  margin: 15px 0 30px; /* smaller top margin, same bottom */
-  color: #ddd;
-}
-
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-.links a {
-  display: block;
-  margin: 12px auto;
-  padding: 16px;
-  width: 100%;          /* full width but safe now */
-  max-width: 360px;     /* prevents it from stretching too wide */
-  text-decoration: none;
-  background: #b7412e;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: 0.3s;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
-}
-
-
-.links a:hover {
-  background: #a13424; /* darker rust */
-  transform: scale(1.03);
-}
-
-.featured {
-  border: 2px solid #e2c38f;
-  background: #111;
-  color: #e2c38f;
-}
-
-.featured:hover {
-  background: #e2c38f;
-  color: #0d0d0d;
-}
-
-footer {
-  margin-top: 30px;
-  font-size: 0.75rem;
-  color: #666;
-}
-
-/* Larger screens (tablet/desktop) */
-@media (min-width: 600px) {
-  h1 {
-    font-size: 2.5rem;
+  /* 1) Make widths include padding/borders (prevents overflow) */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
+
+  /* 2) Page layout */
+  body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
+    color: #e2c38f;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+
+    /* Center content on screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* vertical padding only; no horizontal to avoid visual bias */
+    padding: 20px 0;
+
+    /* safety net for tiny rounding issues */
+    overflow-x: hidden;
+  }
+
+  /* 3) Content container (no side padding; we pad the inner links row instead) */
   .container {
-    max-width: 500px;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
   }
-}
 
+  /* 4) Logo badge */
+  img.logo {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+
+    border-radius: 20%;        /* softer than a circle for wide text logos */
+    border: 4px solid #e2c38f;
+    object-fit: contain;       /* keep full logo visible */
+    background: #111;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    padding: 10px;             /* breathing room inside the badge */
+  }
+
+  /* 5) Optional heading (you removed it, keeping styles harmlessly here) */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* 6) Tagline under logo */
+  p.tagline {
+    font-size: 0.9rem;
+    margin: 15px 0 30px;
+    color: #ddd;
+  }
+
+  /* 7) Links rail: add equal side padding so buttons breathe symmetrically */
+  .links {
+    padding: 0 12px;          /* equal L/R spacing */
+  }
+
+  /* 8) Buttons: full-width within links rail, no overflow, balanced spacing */
+  .links a {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 16px;
+
+    text-decoration: none;
+    background: #b7412e;      /* rust red default */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+
+    /* No transform scale (can cause edge spill); use brightness instead */
+    transition: filter .2s ease, background-color .2s ease, color .2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+
+  /* Center emoji + text nicely if you wrap text in <span> */
+  .links a span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .links a:hover {
+    filter: brightness(1.05);
+    background: #a13424;      /* slightly darker rust on hover */
+  }
+
+  /* 9) Featured CTA: dark w/ gold outline so it stands out */
+  .featured {
+    border: 2px solid #e2c38f;
+    background: #111;
+    color: #e2c38f;
+  }
+
+  .featured:hover {
+    background: #e2c38f;
+    color: #0d0d0d;
+    filter: none;
+  }
+
+  /* 10) Footer */
+  footer {
+    margin-top: 30px;
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  /* 11) Tablet/desktop tweaks */
+  @media (min-width: 600px) {
+    h1 { font-size: 2.5rem; }
+    .container { max-width: 500px; }
+    img.logo { max-width: 260px; }
+  }
 </style>
 
 
